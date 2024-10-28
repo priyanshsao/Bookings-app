@@ -1,0 +1,104 @@
+h5 {
+  font-family: "Playfair Display";
+}
+
+.carousel-item {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  transition: opacity 1s ease-in-out; /* Fading effect */
+  opacity: 0; /* Start with opacity 0 */
+}
+
+.carousel-item.active {
+  display: block;
+  opacity: 1;
+}
+
+.carousel-inner {
+  position: relative;
+  width: 100%;
+  height: 800px;
+  overflow: hidden;
+}
+
+.carousel-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Ensure the image covers the container */
+}
+
+.my-footer {
+  height: 10em; /* Adjust height as needed */
+  background-color: #163b65;
+  margin-top: 1.5em;
+  padding: 1em;
+  color: white;
+  font-size: 1.2rem; /* Increased font size */
+}
+
+.footer-text {
+  font-size: 1.5rem; /* Increased footer text size */
+}
+
+.footer-icon {
+  font-size: 2rem; /* Increased icon size */
+  transition: color 0.3s; /* Smooth transition for hover effect */
+}
+
+.dropdown-menu {
+  z-index: 10; /* Ensure the dropdown menu appears above other elements */
+  background-color: beige;
+  border-radius: 0.5rem; /* Rounded corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Shadow for depth */
+  padding: 0.5rem 0; /* Padding for the dropdown */
+  min-width: 12rem; /* Minimum width for the dropdown */
+}
+
+.dropdown-menu a {
+  display: block;
+  padding: 0.5rem 1rem; /* Padding for dropdown items */
+  color: #333; /* Text color */
+  text-decoration: none; /* Remove underline */
+}
+
+.dropdown-menu a:hover {
+  color: black;
+  /* Background color on hover */
+}
+
+/* Modal styles */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed;
+  z-index: 50; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.5); /* Black w/ opacity */
+}
+
+.modal-content {
+  background-color: #fefefe;
+  margin: 15% auto; /* 15% from the top and centered */
+  padding: 20px;
+  border: 1px solid #888;
+  width: 50%; /* Could be more or less, depending on screen size */
+}
+
+/* Styling for input fields */
+.input-date {
+  width: calc(50% - 0.5rem); /* Adjust width for efficiency */
+  margin: 0 0.25rem; /* Small margin for spacing */
+}
+
+.open-sans-1 {
+  font-family: "Open Sans";
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  font-variation-settings: "wdth" 100;
+}
+
