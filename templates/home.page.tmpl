@@ -1,0 +1,136 @@
+{{template "base" .}}
+
+{{define "content"}}
+
+<!-- Carousel -->
+<div id="carousel" class="carousel-inner relative w-full mx-auto">
+  <div class="carousel-item active">
+    <img
+      src="/static/images/pic-1.jpg"
+      class="block w-full"
+      alt="Picture of hotel"
+    />
+    <div
+      class="absolute inset-0 flex flex-col justify-center items-center text-center text-white bg-black bg-opacity-50"
+    >
+      <h5 class="text-6xl font-bold mb-2">Discover Endless Comfort</h5>
+      <p class="text-lg open-sans-1" style="color: #ff7f50">
+        Experience a relaxing retreat where modern luxury meets the serenity of
+        nature.
+      </p>
+    </div>
+  </div>
+  <div class="carousel-item">
+    <img
+      src="/static/images/pic-2.jpg"
+      class="block w-full"
+      alt="picture of hotel "
+    />
+    <div
+      class="absolute inset-0 flex flex-col justify-center items-center text-center text-white bg-black bg-opacity-50"
+    >
+      <h5 class="text-6xl font-bold mb-2">Experience Culinary Delights</h5>
+      <p class="text-lg open-sans-1" style="color: #ff7f50">
+        Savor gourmet dishes crafted with fresh, local ingredients.
+      </p>
+    </div>
+  </div>
+  <div class="carousel-item">
+    <img
+      src="/static/images/pic-3.jpg"
+      class="block w-full"
+      alt="picture of tourism spot"
+    />
+    <div
+      class="absolute inset-0 flex flex-col justify-center items-center text-center text-white bg-black bg-opacity-50"
+    >
+      <h5
+        class="text-6xl font-bold mb-2 open-sans-2"
+        style="color: antiquewhite"
+      >
+        Explore Nearby Attractions
+      </h5>
+      <p class="text-lg open-sans-1" style="color: #ff7f50">
+        Discover the beauty of Ocean City with our curated adventure packages.
+      </p>
+    </div>
+  </div>
+
+  <!-- Carousel controls -->
+  <button
+    class="absolute top-1/2 left-0 transform -translate-y-1/2 bg-gray-900 text-white px-4 py-2"
+    onclick="prevSlide()"
+  >
+    &#10094;
+  </button>
+  <button
+    class="absolute top-1/2 right-0 transform -translate-y-1/2 bg-gray-900 text-white px-4 py-2"
+    onclick="nextSlide()"
+  >
+    &#10095;
+  </button>
+</div>
+
+<!-- Main Content -->
+<div class="relative bg-contain bg-center py-24 mt-10">
+  <div
+    class="container mx-auto py-24 bg-white bg-opacity-80 rounded-lg shadow-lg"
+  >
+    <div class="text-center">
+      <h1 class="text-4xl font-serif font-bold mb-4 open-sans-1">
+        Welcome to Bookings.com
+      </h1>
+      <p class="text-gray-700 text-lg mb-6">
+        At Bookings.com, we believe that every journey begins with a single
+        step—finding the perfect place to stay. Whether you're planning a
+        weekend getaway, a family vacation, or a business trip, we are here to
+        simplify your booking experience. Our platform connects you with a
+        diverse range of accommodations, from cozy hotels and luxurious resorts
+        to charming vacation rentals, ensuring that you find the ideal spot that
+        fits your needs and budget.
+      </p>
+    </div>
+    <div class="text-center mt-6">
+      <a
+        href="/make-reservation"
+        class="bg-blue-500 text-white py-3 px-6 rounded-lg shadow-md hover:bg-blue-600 transition duration-300 ease-in-out transform hover:scale-105"
+      >
+        Book Your Stay Today
+      </a>
+    </div>
+  </div>
+</div>
+
+{{ end }}
+
+{{define "js"}}
+
+<script>
+
+  <!-- Carousel JavaScript -->
+
+        let currentSlide = 0;
+        const slides = document.querySelectorAll(".carousel-item");
+
+        function showSlide(index) {
+          slides[currentSlide].classList.remove("active");
+          currentSlide = (index + slides.length) % slides.length;
+          slides[currentSlide].classList.add("active");
+        }
+
+        function prevSlide() {
+          showSlide(currentSlide - 1);
+        }
+
+        function nextSlide() {
+          showSlide(currentSlide + 1);
+        }
+
+        // Optional: Auto-slide every 5 seconds
+        setInterval(() => {
+          nextSlide();
+        }, 5000);
+
+</script>
+
+{{ end }}

@@ -1,0 +1,76 @@
+{{template "base" .}}
+
+{{define "content"}}
+<div class="flex justify-center items-center min-h-screen bg-gray-100">
+  <div class="w-full max-w-lg bg-white shadow-xl rounded-lg p-8">
+    <!-- Title -->
+    <div class="text-3xl font-bold text-center text-gray-800 mb-6">
+      Book Your Stay
+    </div>
+
+    <!-- Form -->
+    <form action="/search-availability" method="post" class="space-y-6">
+      <!-- Check-In Date -->
+      <input type="hidden" name="csrf_token" value="{{.CSRFToken}}" />
+      <div>
+        <label for="checkin" class="block text-sm font-semibold text-gray-700">
+          Check-In Date
+        </label>
+        <div class="relative mt-1">
+          <span
+            class="absolute inset-y-0 left-0 pl-3 flex items-center text-gray-400"
+          >
+            <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 20 20">
+              <path
+                d="M6 2a2 2 0 00-2 2v1H3a1 1 0 100 2h1v7a2 2 0 002 2h8a2 2 0 002-2V7h1a1 1 0 100-2h-1V4a2 2 0 00-2-2H6zm8 3V4a1 1 0 011 1v1H5V4a1 1 0 011-1h8z"
+              ></path>
+            </svg>
+          </span>
+          <input
+            type="date"
+            id="checkin"
+            name="checkin"
+            required
+            class="block w-full pl-10 pr-3 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
+          />
+        </div>
+      </div>
+
+      <!-- Check-Out Date -->
+      <div>
+        <label for="checkout" class="block text-sm font-semibold text-gray-700">
+          Check-Out Date
+        </label>
+        <div class="relative mt-1">
+          <span
+            class="absolute inset-y-0 left-0 pl-3 flex items-center text-gray-400"
+          >
+            <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 20 20">
+              <path
+                d="M6 2a2 2 0 00-2 2v1H3a1 1 0 100 2h1v7a2 2 0 002 2h8a2 2 0 002-2V7h1a1 1 0 100-2h-1V4a2 2 0 00-2-2H6zm8 3V4a1 1 0 011 1v1H5V4a1 1 0 011-1h8z"
+              ></path>
+            </svg>
+          </span>
+          <input
+            type="date"
+            id="checkout"
+            name="checkout"
+            required
+            class="block w-full pl-10 pr-3 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
+          />
+        </div>
+      </div>
+
+      <!-- Button -->
+      <div>
+        <button
+          type="submit"
+          class="w-full bg-gradient-to-r from-blue-500 to-indigo-600 text-white py-2 px-4 rounded-md font-medium shadow-lg hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition ease-in-out duration-150"
+        >
+          Check Availability
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+{{ end }}

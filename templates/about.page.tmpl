@@ -1,0 +1,78 @@
+{{template "base" .}}
+
+{{define "css"}}
+<style>
+  h5 {
+    font-family: "Playfair Display";
+  }
+
+  .my-footer {
+    height: 5em;
+    background-color: #163b65;
+    margin-top: 1.5em;
+    padding: 1em;
+    color: white;
+    font-size: 80%;
+  }
+</style>
+{{ end }}
+
+{{define "content"}}
+<!-- About and Facilities Section with Artistic Background and Hover Effect -->
+<section class="relative bg-cover bg-center py-24">
+  <div
+    class="container mx-auto flex flex-wrap justify-center space-y-8 md:space-y-0 md:space-x-8"
+  >
+    <style>
+      /* Universal Card Styles */
+      .hover-card {
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+      .hover-card:hover {
+        transform: scale(1.05);
+        box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.3);
+      }
+    </style>
+
+    <!-- Square Card: About Us -->
+    <div
+      class="bg-white shadow-lg rounded-lg p-10 w-full md:w-1/3 h-80 flex flex-col justify-center items-center hover-card"
+    >
+      <h2
+        class="text-3xl font-bold mb-4"
+        style="font-family: 'Playfair Display', serif"
+      >
+        About Us
+      </h2>
+      <p
+        class="text-gray-700 text-lg text-center"
+        style="font-family: open sans"
+      >
+        We are committed to creating unforgettable experiences by blending
+        luxury and comfort in a peaceful environment. Our team is dedicated to
+        exceeding expectations.
+      </p>
+    </div>
+
+    <!-- Square Card: Facilities -->
+    <div
+      class="bg-white shadow-lg rounded-lg p-10 w-full md:w-1/3 h-80 flex flex-col justify-center items-center hover-card"
+    >
+      <h2
+        class="text-3xl font-bold mb-4"
+        style="font-family: 'Playfair Display', serif"
+      >
+        Facilities
+      </h2>
+      <p
+        class="text-gray-700 text-lg text-center"
+        style="font-family: open sans"
+      >
+        Indulge in our state-of-the-art facilities, including a lavish spa,
+        high-speed Wi-Fi, gourmet dining, and scenic garden areas to relax and
+        unwind.
+      </p>
+    </div>
+  </div>
+</section>
+{{ end }}

@@ -1,0 +1,112 @@
+{{template "base" .}}
+
+{{define "content"}}
+<div class="flex justify-center items-center min-h-screen bg-gray-100">
+  <div class="w-full max-w-lg bg-white shadow-xl rounded-lg p-8">
+    <!-- Title -->
+    <div class="text-3xl font-bold text-center text-gray-800 mb-6">
+      Hotel Reservation
+    </div>
+
+    <!-- Reservation Form -->
+     {{$res := index .Data "reservation"}}
+
+    <form action="/make-reservation" method="Post" class="space-y-6" novalidate>
+      <!-- First Name -->
+      <input type="hidden" name="csrf_token" value="{{.CSRFToken}}" />
+      <div>
+        <label
+          for="first-name"
+          class="block text-sm font-semibold text-gray-700"
+        >
+          First Name
+        </label>
+        {{with .Form.Errors.Get "first-name"}}
+        <label class="text-red-500">{{.}}</label>
+        {{ end }}
+        <input
+          type="text"
+          id="first-name"
+          name="first-name"
+          class="block w-full mt-1 p-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm {{if .Form.Errors.Get "first-name"}} border-2 border-rose-500 {{end}}"
+          value="{{$res.FirstName}}"
+          placeholder="John"
+        />
+      </div>
+
+      <!-- Last Name -->
+      <div>
+        <label
+          for="last-name"
+          class="block text-sm font-semibold text-gray-700"
+        >
+          Last Name
+        </label>
+
+        {{with .Form.Errors.Get "last-name"}}
+        <label class="text-red-500">{{.}}</label>
+        {{ end }}
+
+        <input
+          type="text"
+          id="last-name"
+          name="last-name"
+          class="block w-full mt-1 p-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm {{if .Form.Errors.Get "last-name"}} border-2 border-rose-500 {{end}}"
+          value="{{$res.LastName}}"
+          placeholder="Doe"
+        />
+      </div>
+
+      <!-- Email Address -->
+      <div>
+        <label for="email" class="block text-sm font-semibold text-gray-700">
+          Email Address
+        </label>
+
+        {{with .Form.Errors.Get "email"}}
+        <label class="text-red-500">{{.}}</label>
+        {{ end }}
+
+        <input
+          type="email"
+          id="email"
+          name="email"
+          class="block w-full mt-1 p-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm {{if .Form.Errors.Get "email"}} border-2 border-rose-500 {{end}}"
+          value="{{$res.Email}}"
+          placeholder="johndoe@example.com"
+        />
+      </div>
+
+      <!-- Phone Number -->
+      <div>
+        <label for="phone" class="block text-sm font-semibold text-gray-700">
+          Phone Number
+        </label>
+
+        {{with .Form.Errors.Get "phone"}}
+        <label class="text-red-500">{{.}}</label>
+        {{ end }}
+
+        <input
+          type="tel"
+          id="phone"
+          name="phone"
+          class="block w-full mt-1 p-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm {{if .Form.Errors.Get "phone"}} border-red-500 {{end}}"
+          value="{{$res.Phone}}"
+          placeholder="+1 234 567 8901"
+        />
+      </div>
+
+      <!-- Button -->
+      <div>
+        <button
+          type="submit"
+          class="w-full bg-gradient-to-r from-blue-500 to-indigo-600 text-white py-2 px-4 rounded-md font-medium shadow-lg hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition ease-in-out duration-150"
+        >
+          Reserve Now
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+{{ end }}

@@ -1,0 +1,49 @@
+{{template "base" .}}
+
+{{define "content"}}
+{{$res := index .Data "reservation"}}
+
+<style>
+    /* Custom CSS to center the component */
+    .centered-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh; /* Full viewport height */
+    }
+</style>
+
+<div class="centered-container bg-gray-800">
+    <div class="bg-gray-100 shadow-lg rounded-lg w-1/2">
+        <!-- Heading -->
+        <div class="bg-blue-600 text-white text-center py-4 rounded-t-lg">
+            <h2 class="text-2xl font-semibold">Reservation Summary</h2>
+        </div>
+        
+        <!-- Content -->
+        <div class="p-6">
+            <div class="flex items-center border-b border-gray-300 py-3">
+                <div class="w-1/3 text-gray-800 font-semibold">Name</div>
+                <div class="w-2/3 text-gray-700">{{$res.FirstName}} {{$res.LastName}} </div>
+            </div>
+            <div class="flex items-center border-b border-gray-300 py-3">
+                <div class="w-1/3 text-gray-800 font-semibold">Arrival Date</div>
+                <div class="w-2/3 text-gray-700">Any Arrival Date</div>
+            </div>
+            <div class="flex items-center border-b border-gray-300 py-3">
+                <div class="w-1/3 text-gray-800 font-semibold">Departure Date</div>
+                <div class="w-2/3 text-gray-700">Any Departure Date</div>
+            </div>
+            <div class="flex items-center border-b border-gray-300 py-3">
+                <div class="w-1/3 text-gray-800 font-semibold">Email</div>
+                <div class="w-2/3 text-gray-700">{{$res.Email}}</div>
+            </div>
+            <div class="flex items-center py-3">
+                <div class="w-1/3 text-gray-800 font-semibold">Phone</div>
+                <div class="w-2/3 text-gray-700">{{$res.Phone}}</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{{ end }}
